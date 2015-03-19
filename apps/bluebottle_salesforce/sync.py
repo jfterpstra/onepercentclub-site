@@ -470,7 +470,7 @@ def sync_donations(dry_run, sync_from_datetime, loglevel):
 
     donations = Donation.objects.all()
     if sync_from_datetime:
-        donations = donations.filter(updated__gte=sync_from_datetime)
+        donations = donations.filter(order__updated__gte=sync_from_datetime)
 
     logger.info("Syncing {0} Donation objects.".format(donations.count()))
 
